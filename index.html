@@ -345,18 +345,24 @@
 <script src="js/agency.js"></script>
 <script>
     var $form = $('form#contactForm'),
-        url = 'https://script.google.com/macros/s/AKfycbx5qU0jWoTxcqAiSAx4ikzZ-eD8Rgm5sAuMD3x8uLU0aEi7ifE/exec';
+        //url = 'https://script.google.com/macros/s/<form script google>/exec';
+        url = ''
 
     $form.submit(function (e) {
         e.preventDefault();
+        // $.ajax({
+        //     url: url,
+        //     method: "GET",
+        //     dataType: "json",
+        //     data: $form.serializeObject(),
+        //     beforeSend: function () {
+        //         $("#sendMessageButton").attr("disabled", true).html('<span class="spinner-grow spinner-grow-sm"></span>Đăng gửi..');
+        //     },
+        //     success: function (response) {
+        //         $("#sendMessageButton").attr("disabled", true).html('Gửi hoàn thành!!!');
+        //     }
+        // })
         $.ajax({
-            url: url,
-            method: "GET",
-            dataType: "json",
-            data: $form.serializeObject(),
-            beforeSend: function () {
-                $("#sendMessageButton").attr("disabled", true).html('<span class="spinner-grow spinner-grow-sm"></span>Đăng gửi..');
-            },
             success: function (response) {
                 $("#sendMessageButton").attr("disabled", true).html('Gửi hoàn thành!!!');
             }
